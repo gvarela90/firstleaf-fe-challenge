@@ -1,60 +1,55 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
+
 import * as styles from './index.module.scss';
 
-export default class Countdown extends React.Component {
-  static propTypes = {
-    seconds: PropTypes.number.isRequired,
-    label: PropTypes.string,
-    loop: PropTypes.bool,
-    customClass: PropTypes.string,
-    onFinish: PropTypes.func
-  };
+interface CountdownProps {
+  seconds: number;
+  label?: string;
+  shouldRestartAtZero?: boolean;
+  customClass?: string;
+  onFinish?: () => void;
+}
 
-  static defaultProps = {
-    loop: false,
-    label: 'Reserving your wines for',
-    customClass: '',
-    onFinish: () => {}
-  };
+const Countdown: React.FC<CountdownProps> = ({
+  seconds: initialSeconds,
+  label = 'Reserving your wines for',
+  shouldRestartAtZero = false,
+  customClass = '',
+  onFinish = () => {}
+}) => {
+  const [seconds, setSeconds] = useState(initialSeconds);
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      seconds: props.seconds,
-    };
-  }
-
-  componentDidMount() {
-    setInterval(() => {
-      this.setState(prevState => {
-        const end = this.props.loop ? this.props.seconds : 0;
-        const remaining = prevState.seconds > 0 ? prevState.seconds - 1 : end;
-        return { seconds: remaining };
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setSeconds((prevSeconds) => {
+        const end = shouldRestartAtZero ? initialSeconds : 0;
+        const remaining = prevSeconds > 0 ? prevSeconds - 1 : end;
+        return remaining;
       });
     }, 1000);
-  }
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    const { seconds } = this.state;
+    return () => clearInterval(intervalId);
+  }, [shouldRestartAtZero, initialSeconds]);
+
+  useEffect(() => {
     if (seconds === 0) {
-      this.props.onFinish();
+      onFinish();
     }
-  }
+  }, [seconds, onFinish]);
 
-  render() {
-    const { label, customClass } = this.props;
-    const { seconds } = this.state;
-    const minutes = Math.floor(seconds / 60);
-    const remainingSeconds = seconds % 60;
-    const counter = `00:${`0${minutes}`.slice(-2)}:${`0${remainingSeconds}`.slice(-2)}`;
+  const formatTimeUnit = (unit: number): string => `0${unit}`.slice(-2);
 
-    return (
-      <div className={`${styles.countdown} ${customClass}`}>
-        {label && <div className={`${styles.label} countdown-label`}>{label}</div>}
-        <div className={`${styles.counter} countdown-counter`}>{counter}</div>
-      </div>
-    );
-  }
-}
+  const hours = Math.floor(seconds / 3600);
+  const minutes = Math.floor((seconds % 3600) / 60);
+  const remainingSeconds = seconds % 60;
+  const counter = `${formatTimeUnit(hours)}:${formatTimeUnit(minutes)}:${formatTimeUnit(remainingSeconds)}`;
+
+  return (
+    <div className={`${styles.countdown} ${customClass}`}>
+      {label && <div className={`${styles.label} countdown-label`}>{label}</div>}
+      <div className={`${styles.counter} countdown-counter`}>{counter}</div>
+    </div>
+  );
+};
+
+export default Countdown;
