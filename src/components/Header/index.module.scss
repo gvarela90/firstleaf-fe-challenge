@@ -1,0 +1,25 @@
+@use '../../styles/variables' as *;
+@import '../../styles/mixins';
+
+.header {
+  border-bottom: 1px solid $border-color;
+  padding: 12px 0;
+  background: #fff;
+}
+
+.container {
+  @include max-container;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 135px;
+}
+
+.checkoutContainer {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}

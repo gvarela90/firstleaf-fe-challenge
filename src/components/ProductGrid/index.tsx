@@ -1,18 +1,27 @@
-import React from 'react'
+import React from 'react';
 import { useProducts } from '../../hooks/useProducts';
+import ProductCard from '../ProductCard';
+import * as styles from './index.module.scss';
 
 const ProductGrid = () => {
-  const { data } = useProducts();
+  const { data, isLoading, error } = useProducts();
 
-  if (!data) {
-    return <div>Loading...</div>;
-  }
+  if (isLoading) return <div className={styles.loading}>Loading...</div>;
+
+  if (error)
+    return (
+      <div className={styles.error}>
+        There was an error retrieving the data. Please try again later.
+      </div>
+    );
 
   return (
-    <ul>
-      {data?.map(product => <li>{product.name}</li>)}
-    </ul>
-  )
-}
+    <div className={styles.container}>
+      <div className={styles.grid}>
+        {data?.map((product) => <ProductCard key={product.id} product={product} />)}
+      </div>
+    </div>
+  );
+};
 
 export default ProductGrid;

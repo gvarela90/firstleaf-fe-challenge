@@ -10,7 +10,7 @@ interface CountdownProps {
   onFinish?: () => void;
 }
 
-const Countdown: React.FC<CountdownProps> = ({
+const Countdown = ({
   seconds: initialSeconds,
   label = 'Reserving your wines for',
   shouldRestartAtZero = false,
@@ -32,9 +32,7 @@ const Countdown: React.FC<CountdownProps> = ({
   }, [shouldRestartAtZero, initialSeconds]);
 
   useEffect(() => {
-    if (seconds === 0) {
-      onFinish();
-    }
+    if (seconds === 0) onFinish();
   }, [seconds, onFinish]);
 
   const formatTimeUnit = (unit: number): string => `0${unit}`.slice(-2);

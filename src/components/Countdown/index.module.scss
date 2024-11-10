@@ -1,12 +1,10 @@
-%robotoBook {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-}
-
-$bright-green: #333;
+$bright-green: #008653;
 
 .countdown {
-  @extend %robotoBook;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  white-space: nowrap;
 
   .label {
     font-size: 14px;
@@ -42,5 +40,13 @@ $bright-green: #333;
 @keyframes blinker {
   50% {
     opacity: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .countdown {
+    .label {
+      display: none;
+    }
   }
 }

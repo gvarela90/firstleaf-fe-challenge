@@ -12,7 +12,7 @@
     "display_msrp": "$64.20",
     "display_price": "$34.00",
     "award_highlights": {
-        "silver-medal": 1
+      "silver-medal": 1
     },
     "pairings": "Summer Salad, Tuna Steak, Fried Calamari",
     "color": "White",
@@ -35,7 +35,7 @@
     "award_highlights": null,
     "pairings": "Salty Cheese, Grilled Fish, Fried Calamari",
     "color": "White",
-    "images":"https://images-dev.firstleaf.com/images/5534/desktop/Meiggs'_Pardon_20_Sauvignon_Blanc_P2MEI20SVB1021-FLE.png?1632187363",
+    "images": "https://images-dev.firstleaf.com/images/5534/desktop/Meiggs'_Pardon_20_Sauvignon_Blanc_P2MEI20SVB1021-FLE.png?1632187363",
     "ratings_pct": 4.17,
     "display_name": "Meiggs' Pardon"
   },
@@ -52,11 +52,11 @@
     "display_msrp": "$27.60",
     "display_price": "$23.00",
     "award_highlights": {
-        "silver-medal": 2
+      "silver-medal": 2
     },
     "pairings": "Rack of Lamb, Soups and Bisques, Braised Beef",
     "color": "Red",
-    "images":"https://images-dev.firstleaf.com/images/5824/desktop/Miguel_Aime_Pouget_20_Malbec_P2MIG20MLB1221-FLE.png?1636657241",
+    "images": "https://images-dev.firstleaf.com/images/5824/desktop/Miguel_Aime_Pouget_20_Malbec_P2MIG20MLB1221-FLE.png?1636657241",
     "ratings_pct": 4.43,
     "display_name": "Miguel Aime Pouget"
   },
@@ -73,7 +73,7 @@
     "display_msrp": "$27.60",
     "display_price": "$23.00",
     "award_highlights": {
-        "silver-medal": 1
+      "silver-medal": 1
     },
     "pairings": "Wild Game, Roasted Nuts, Potato Soup",
     "color": "Red",
@@ -113,9 +113,9 @@
     "display_msrp": "$19.80",
     "display_price": "$18.00",
     "award_highlights": {
-        "90-points": 1,
-        "gold-medal": 2,
-        "silver-medal": 1
+      "90-points": 1,
+      "gold-medal": 2,
+      "silver-medal": 1
     },
     "pairings": "Barbecue, Baked Pastas, Grilled Mushrooms",
     "color": "Red",
@@ -136,7 +136,7 @@
     "display_msrp": "$25.20",
     "display_price": "$21.00",
     "award_highlights": {
-        "silver-medal": 1
+      "silver-medal": 1
     },
     "pairings": "Fresh Fruit, Salty Cheese, Roasted Chicken",
     "color": "White",
@@ -176,8 +176,8 @@
     "display_msrp": "$28.80",
     "display_price": "$24.00",
     "award_highlights": {
-        "90-points": 1,
-        "gold-medal": 1
+      "90-points": 1,
+      "gold-medal": 1
     },
     "pairings": "Seafood, Salty Cheese, Fresh Fruit",
     "color": "White",
@@ -198,7 +198,7 @@
     "display_msrp": "$20.90",
     "display_price": "$19.00",
     "award_highlights": {
-        "silver-medal": 1
+      "silver-medal": 1
     },
     "pairings": "Antipasto, Duck Breast, Feta and Spinach Frittata",
     "color": "Red",

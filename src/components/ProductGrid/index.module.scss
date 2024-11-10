@@ -1,0 +1,28 @@
+@use '../../styles/breakpoints' as *;
+@import '../../styles/mixins';
+
+.container {
+  @include max-container;
+  padding-top: 24px;
+}
+
+.grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr;
+
+  @include breakpoint(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include breakpoint(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.loading,
+.error {
+  text-align: center;
+  padding: 32px;
+  font-size: 24px;
+}

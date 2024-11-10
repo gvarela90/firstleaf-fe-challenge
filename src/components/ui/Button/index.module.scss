@@ -1,0 +1,21 @@
+@use '../../../styles/variables' as *;
+
+.button {
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background-color 0.2s ease;
+  font-size: $font-size-base;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 24px;
+  background-color: $primary-color;
+  color: $primary-foreground;
+  height: 40px;
+
+  &:hover {
+    opacity: 90%;
+  }
+}

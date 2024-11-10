@@ -1,0 +1,23 @@
+@use './breakpoints' as *;
+@use './variables' as *;
+@use './resets' as *;
+
+@each $breakpoint, $value in $breakpoints {
+  @media (min-width: $value) {
+    .container-#{$breakpoint} {
+      max-width: $value;
+    }
+  }
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: $font-family;
+  font-weight: 400;
+  font-size: $font-size-base;
+  line-height: 1.5;
+  color: $body-color;
+}
