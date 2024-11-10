@@ -1,8 +1,10 @@
 import React from 'react';
+
 import { graphql } from 'gatsby';
-import { CountriesPageQuery } from '../../types/Country';
+
 import * as styles from './index.module.scss';
 import CountryCard from '../../components/CountryCard';
+import { CountriesPageQuery } from '../../types/Country';
 import { slugify } from '../../utils/slugify';
 
 interface CountriesPageProps {

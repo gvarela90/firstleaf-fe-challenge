@@ -1,5 +1,7 @@
-import { Link } from 'gatsby';
 import React from 'react';
+
+import { Link } from 'gatsby';
+
 import * as styles from './index.module.scss';
 import { Country } from '../../types/Country';
 import { slugify } from '../../utils/slugify';

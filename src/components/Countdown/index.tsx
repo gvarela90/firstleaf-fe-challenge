@@ -35,6 +35,10 @@ const Countdown = ({
     if (seconds === 0) onFinish();
   }, [seconds, onFinish]);
 
+  useEffect(() => {
+    setSeconds(initialSeconds);
+  }, [initialSeconds]);
+
   const formatTimeUnit = (unit: number): string => `0${unit}`.slice(-2);
 
   const hours = Math.floor(seconds / 3600);

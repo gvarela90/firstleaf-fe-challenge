@@ -1,9 +1,11 @@
 import React from 'react';
-import Button from '../ui/Button';
+
 import * as styles from './index.module.scss';
+import Button from '../ui/Button';
 
 type ProductColorFilterProps = {
   selectedColor: string | null;
+
   onColorChange: (color: string | null) => void;
 };
 

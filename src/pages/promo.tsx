@@ -4,7 +4,7 @@ import ProductGrid from '../components/ProductGrid';
 import ProductColorFilter from '../components/ProductColorFilter';
 
 const Promo = (): JSX.Element => {
-  const [selectedColor, setSelectedColor] = useState(null);
+  const [selectedColor, setSelectedColor] = useState<string | null>(null);
 
   return (
     <>

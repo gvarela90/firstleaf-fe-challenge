@@ -1,4 +1,5 @@
 import React from 'react';
+
 import * as styles from './index.module.scss';
 import { Product } from '../../types/Products';
 
@@ -10,8 +11,8 @@ const ProductCard = ({ product }: ProductCardProps) => {
   const badgeClass = product.color.toLowerCase();
 
   return (
-    <div className={styles.productCard}>
-      <img src={product.images} alt={product.name} className={styles.image} />
+    <div className={styles.productCard} role="listitem">
+      <img src={product.images} alt={product.name} className={styles.image} loading="lazy" />
       <div className={styles.content}>
         <h3 className={styles.title}>{product.name}</h3>
         <p>{product.tag_line}</p>

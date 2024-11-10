@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { Link } from 'gatsby';
+
 import * as styles from './index.module.scss';
 import { Country } from '../../types/Country';
 
@@ -29,7 +31,7 @@ const CountryTemplate = ({ pageContext: { country } }: CountryTemplateProps) => 
             <strong>Population:</strong> {new Intl.NumberFormat().format(country.population)}
           </p>
           {country.maps && (
-            <a href={country.maps.googleMaps} target="_blank">
+            <a href={country.maps.googleMaps} target="_blank" rel="noreferrer">
               View in maps
             </a>
           )}

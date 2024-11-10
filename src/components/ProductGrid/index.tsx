@@ -1,9 +1,14 @@
 import React from 'react';
+
 import { useProducts } from '../../hooks/useProducts';
 import ProductCard from '../ProductCard';
 import * as styles from './index.module.scss';
 
-const ProductGrid = ({ selectedColor }) => {
+interface ProductGridProps {
+  selectedColor: string | null;
+}
+
+const ProductGrid = ({ selectedColor }: ProductGridProps) => {
   const { data, isLoading, error } = useProducts();
 
   if (isLoading) return <div className={styles.loading}>Loading...</div>;
@@ -21,7 +26,7 @@ const ProductGrid = ({ selectedColor }) => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.grid}>
+      <div className={styles.grid} role="list">
         {filteredProducts?.map((product) => <ProductCard key={product.id} product={product} />)}
       </div>
     </div>

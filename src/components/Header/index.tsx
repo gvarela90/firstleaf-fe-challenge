@@ -1,10 +1,9 @@
 import React from 'react';
 
-import Button from '../ui/Button';
 import Countdown from '../Countdown';
 import * as styles from './index.module.scss';
-
 import logo from '../../images/logo.svg';
+import Button from '../ui/Button';
 
 const Header = () => {
   return (

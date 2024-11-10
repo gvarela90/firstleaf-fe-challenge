@@ -9,12 +9,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
 }
 
-const Button = ({
-  children,
-  className = '',
-  variant = 'primary',
-  ...props
-}: ButtonHTMLAttributes<HTMLButtonElement>) => {
+const Button = ({ children, className = '', variant = 'primary', ...props }: ButtonProps) => {
   const buttonClasses = [styles.button, styles[variant], className].filter(Boolean).join(' ');
 
   return (
