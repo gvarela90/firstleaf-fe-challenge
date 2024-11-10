@@ -5,7 +5,7 @@
   cursor: pointer;
   font-weight: 500;
   white-space: nowrap;
-  transition: background-color 0.2s ease;
+  transition: all 0.2s ease;
   font-size: $font-size-base;
   display: inline-flex;
   align-items: center;
@@ -17,5 +17,22 @@
 
   &:hover {
     opacity: 90%;
+  }
+}
+
+.primary {
+  background-color: $primary-color;
+  color: $primary-foreground;
+  border: 2px solid $primary-color;
+}
+
+.outlined {
+  background-color: $primary-foreground;
+  color: $primary-color;
+  border: 2px solid $primary-color;
+
+  &:hover {
+    background-color: rgba(204, 71, 0, 0.1);
+    opacity: 1;
   }
 }

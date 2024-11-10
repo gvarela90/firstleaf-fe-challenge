@@ -25,8 +25,8 @@
 
 .imageWrapper {
   width: 80px;
-  flex-shrink: 0;
   height: 150px;
+  flex-shrink: 0;
 }
 
 @media (max-width: 768px) {
@@ -61,4 +61,28 @@
 .price {
   font-size: 18px;
   font-weight: 600;
+}
+
+.colorAndOriginRow {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
+}
+
+.colorBadge {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  position: relative;
+}
+
+.red {
+  background-color: #7b0323;
+  border: none;
+}
+
+.white {
+  background-color: #f1f285;
+  border: none;
 }

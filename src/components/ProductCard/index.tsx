@@ -7,6 +7,8 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ product }: ProductCardProps) => {
+  const badgeClass = product.color.toLowerCase();
+
   return (
     <div className={styles.productCard}>
       <div className={styles.imageWrapper}>
@@ -15,7 +17,11 @@ const ProductCard = ({ product }: ProductCardProps) => {
       <div className={styles.content}>
         <h3 className={styles.title}>{product.name}</h3>
         <p>{product.tag_line}</p>
-        <p className={styles.origin}>{product.origin}</p>
+        <div className={styles.colorAndOriginRow}>
+          <div className={`${styles.colorBadge} ${styles[badgeClass]}`}></div>
+          <p className={styles.origin}>{product.origin}</p>
+        </div>
+
         <p className={styles.price}>${product.price}</p>
       </div>
     </div>
