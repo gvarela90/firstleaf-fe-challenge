@@ -16,8 +16,8 @@ const Countdown = ({
   shouldRestartAtZero = false,
   customClass = '',
   onFinish = () => {}
-}) => {
-  const [seconds, setSeconds] = useState(initialSeconds);
+}: CountdownProps) => {
+  const [seconds, setSeconds] = useState<number>(initialSeconds);
 
   useEffect(() => {
     const intervalId = setInterval(() => {

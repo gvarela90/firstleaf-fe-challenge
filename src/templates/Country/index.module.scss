@@ -1,0 +1,36 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  @include max-container;
+}
+
+.backLink {
+  margin-top: 32px;
+  color: $primary-color;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.content {
+  padding: 32px;
+}
+
+.flag {
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 32px;
+}
+
+.details {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}

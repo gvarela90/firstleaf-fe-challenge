@@ -11,9 +11,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
 
   return (
     <div className={styles.productCard}>
-      <div className={styles.imageWrapper}>
-        <img src={product.images} alt={product.name} className={styles.image} />
-      </div>
+      <img src={product.images} alt={product.name} className={styles.image} />
       <div className={styles.content}>
         <h3 className={styles.title}>{product.name}</h3>
         <p>{product.tag_line}</p>

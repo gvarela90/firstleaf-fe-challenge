@@ -1,0 +1,14 @@
+@use '../../styles/variables' as *;
+@use '../../styles/breakpoints' as *;
+@use '../../styles/mixins' as *;
+
+.container {
+  @include max-container;
+}
+
+.grid {
+  display: grid;
+  gap: 32px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  margin-top: 32px;
+}
