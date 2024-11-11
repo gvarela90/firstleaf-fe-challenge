@@ -9,8 +9,11 @@ $bright-green: #008653;
   .label {
     font-size: 14px;
     color: #7f7f7f;
-    line-height: 1.29;
     letter-spacing: 0.4px;
+
+    @media (max-width: 550px) {
+      display: none;
+    }
   }
 
   .counter {
@@ -40,13 +43,5 @@ $bright-green: #008653;
 @keyframes blinker {
   50% {
     opacity: 0;
-  }
-}
-
-@media (max-width: 600px) {
-  .countdown {
-    .label {
-      display: none;
-    }
   }
 }

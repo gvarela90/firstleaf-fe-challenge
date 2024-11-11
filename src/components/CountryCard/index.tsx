@@ -12,17 +12,15 @@ interface CountryCardProps {
 
 const CountryCard = ({ country }: CountryCardProps) => {
   return (
-    <Link
-      key={country.name.common}
-      to={`/countries/${slugify(country.name.common)}`}
-      className={styles.CountryCard}
-    >
-      <img className={styles.flag} src={country.flags.png} alt={`${country.name.common}`} />
-      <h2 className={styles.title}>{country.name.common}</h2>
-      <p>Region: {country.region}</p>
-      {country.capital && <p>Capital: {country.capital[0]}</p>}
-      <p>Population: {new Intl.NumberFormat().format(country.population)}</p>
-    </Link>
+    <li className={styles.countryCard}>
+      <Link key={country.name.common} to={`/countries/${slugify(country.name.common)}`}>
+        <img className={styles.flag} src={country.flags.png} alt={`${country.name.common}`} />
+        <h2 className={styles.title}>{country.name.common}</h2>
+        <p>Region: {country.region}</p>
+        {country.capital && <p>Capital: {country.capital[0]}</p>}
+        <p>Population: {new Intl.NumberFormat().format(country.population)}</p>
+      </Link>
+    </li>
   );
 };
 

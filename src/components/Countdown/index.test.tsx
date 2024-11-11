@@ -5,14 +5,14 @@ import { render, screen } from '@testing-library/react';
 import Countdown from './index';
 
 describe('Countdown Component', () => {
-  test('renders Countdown component', () => {
+  test('should render Countdown component', () => {
     render(<Countdown seconds={300} />);
 
     expect(screen.getByText('Reserving your wines for')).toBeInTheDocument();
     expect(screen.getByText('00:05:00')).toBeInTheDocument();
   });
 
-  it('renders with custom label', () => {
+  it('should render with custom label', () => {
     const customLabel = 'Time remaining:';
     render(<Countdown seconds={300} label={customLabel} />);
 

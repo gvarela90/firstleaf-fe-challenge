@@ -1,5 +1,6 @@
 @use '../../styles/variables' as *;
-@import '../../styles/mixins';
+@use '../../styles/mixins' as *;
+@use '../../styles/breakpoints' as *;
 
 .header {
   border-bottom: 1px solid $border-color;
@@ -8,18 +9,26 @@
 }
 
 .container {
-  @include max-container;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @include max-container;
 }
 
 .logo {
-  width: 135px;
+  width: 115px;
+
+  @include breakpoint(md) {
+    width: 135px;
+  }
 }
 
 .checkoutContainer {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 12px;
+
+  @include breakpoint(md) {
+    gap: 20px;
+  }
 }

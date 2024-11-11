@@ -17,11 +17,11 @@ const CountriesPage = ({ data }: CountriesPageProps) => {
   return (
     <div className={styles.container}>
       <h1 style={{ marginTop: '32px' }}>All Countries</h1>
-      <div className={styles.grid}>
+      <ul className={styles.grid}>
         {countries.map((country) => (
           <CountryCard country={country} key={slugify(country.name.common)} />
         ))}
-      </div>
+      </ul>
     </div>
   );
 };

@@ -1,11 +1,12 @@
-import React from "react";
-import ThreeButtons from "../components/TheBucket";
+import React from 'react';
+
+import TheBucket from '../components/TheBucket';
 
 const BucketPage = (): JSX.Element => (
   <div>
     <h1>Sample content</h1>
 
-    <ThreeButtons />
+    <TheBucket />
   </div>
 );
 

@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, screen } from '@testing-library/react';
 import { QueryClientProvider, QueryClient } from 'react-query';
 
 import mockProducts from './db.json';
@@ -43,105 +43,105 @@ describe('promo page', () => {
 
   it('render a checkout button', async () => {
     expect.assertions(1);
-    const { getByText } = render(
+    render(
       <QueryWrapper>
         <Promo />
       </QueryWrapper>
     );
 
-    expect(getByText('Checkout')).toBeInTheDocument();
+    expect(screen.getByText('Checkout')).toBeInTheDocument();
   });
 
   it('should default to 5 mins', async () => {
     expect.assertions(1);
-    const { getByText } = render(
+    render(
       <QueryWrapper>
         <Promo />
       </QueryWrapper>
     );
 
-    expect(getByText(/5:00/i)).toBeInTheDocument();
+    expect(screen.getByText('00:05:00')).toBeInTheDocument();
   });
 
   it('should show 10 products', async () => {
     expect.assertions(1);
     mockedUseProduct.mockImplementation(() => ({ isLoading: false, data: mockProducts }));
 
-    const { getAllByRole } = render(
+    render(
       <QueryWrapper>
         <Promo />
       </QueryWrapper>
     );
 
-    expect(getAllByRole('listitem')).toHaveLength(10);
+    expect(screen.getAllByRole('listitem')).toHaveLength(10);
   });
 
   test('should render the header with logo and countdown', () => {
-    const { getByAltText, getByText } = render(<Promo />);
+    render(<Promo />);
 
-    expect(getByAltText('Firstleaf')).toBeInTheDocument();
-    expect(getByText(/Reserving your wines for/i)).toBeInTheDocument();
-    expect(getByText('Checkout')).toBeInTheDocument();
+    expect(screen.getByAltText('Firstleaf')).toBeInTheDocument();
+    expect(screen.getByText(/Reserving your wines for/i)).toBeInTheDocument();
+    expect(screen.getByText('Checkout')).toBeInTheDocument();
   });
 
   test('should render all filter buttons', () => {
-    const { getByText } = render(<Promo />);
+    render(<Promo />);
 
-    expect(getByText('All')).toBeInTheDocument();
-    expect(getByText('Red Wine')).toBeInTheDocument();
-    expect(getByText('White Wine')).toBeInTheDocument();
+    expect(screen.getByText('All')).toBeInTheDocument();
+    expect(screen.getByText('Red Wine')).toBeInTheDocument();
+    expect(screen.getByText('White Wine')).toBeInTheDocument();
   });
 
   test('should filter white wines correctly', async () => {
     mockedUseProduct.mockImplementation(() => ({ isLoading: false, data: mockProducts }));
-    const { getByText, queryByText } = render(<Promo />);
+    render(<Promo />);
 
-    const whiteWineButton = getByText('White Wine');
+    const whiteWineButton = screen.getByText('White Wine');
     fireEvent.click(whiteWineButton);
 
-    expect(getByText('Cartesian 2020 Sauvignon Blanc California')).toBeInTheDocument();
+    expect(screen.getByText('Cartesian 2020 Sauvignon Blanc California')).toBeInTheDocument();
     expect(
-      queryByText('Miguel Aime Pouget 2020 Limited Release Malbec Mendoza, Argentina')
+      screen.queryByText('Miguel Aime Pouget 2020 Limited Release Malbec Mendoza, Argentina')
     ).not.toBeInTheDocument();
   });
 
   test('should filter red wines correctly', () => {
     mockedUseProduct.mockImplementation(() => ({ isLoading: false, data: mockProducts }));
 
-    const { getByText, queryByText } = render(<Promo />);
+    render(<Promo />);
 
-    const redWineButton = getByText('Red Wine');
+    const redWineButton = screen.getByText('Red Wine');
     fireEvent.click(redWineButton);
 
-    expect(queryByText('Cartesian 2020 Sauvignon Blanc California')).not.toBeInTheDocument();
+    expect(screen.queryByText('Cartesian 2020 Sauvignon Blanc California')).not.toBeInTheDocument();
     expect(
-      getByText('Miguel Aime Pouget 2020 Limited Release Malbec Mendoza, Argentina')
+      screen.getByText('Miguel Aime Pouget 2020 Limited Release Malbec Mendoza, Argentina')
     ).toBeInTheDocument();
   });
 
   test('should filter all products when clicking All button', () => {
     mockedUseProduct.mockImplementation(() => ({ isLoading: false, data: mockProducts }));
-    const { getByText } = render(<Promo />);
+    render(<Promo />);
 
-    const redWineButton = getByText('Red Wine');
+    const redWineButton = screen.getByText('Red Wine');
     fireEvent.click(redWineButton);
 
-    const allButton = getByText('All');
+    const allButton = screen.getByText('All');
     fireEvent.click(allButton);
 
-    expect(getByText('Cartesian 2020 Sauvignon Blanc California')).toBeInTheDocument();
+    expect(screen.getByText('Cartesian 2020 Sauvignon Blanc California')).toBeInTheDocument();
     expect(
-      getByText('Miguel Aime Pouget 2020 Limited Release Malbec Mendoza, Argentina')
+      screen.getByText('Miguel Aime Pouget 2020 Limited Release Malbec Mendoza, Argentina')
     ).toBeInTheDocument();
   });
 
   test('should show all products initially', () => {
     mockedUseProduct.mockImplementation(() => ({ isLoading: false, data: mockProducts }));
-    const { getByText } = render(<Promo />);
+    render(<Promo />);
 
-    expect(getByText('Cartesian 2020 Sauvignon Blanc California')).toBeInTheDocument();
+    expect(screen.getByText('Cartesian 2020 Sauvignon Blanc California')).toBeInTheDocument();
     expect(
-      getByText('Miguel Aime Pouget 2020 Limited Release Malbec Mendoza, Argentina')
+      screen.getByText('Miguel Aime Pouget 2020 Limited Release Malbec Mendoza, Argentina')
     ).toBeInTheDocument();
   });
 });

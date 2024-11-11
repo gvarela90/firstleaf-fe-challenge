@@ -26,9 +26,9 @@ const ProductGrid = ({ selectedColor }: ProductGridProps) => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.grid} role="list">
+      <ul className={styles.grid}>
         {filteredProducts?.map((product) => <ProductCard key={product.id} product={product} />)}
-      </div>
+      </ul>
     </div>
   );
 };

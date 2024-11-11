@@ -11,7 +11,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
   const badgeClass = product.color.toLowerCase();
 
   return (
-    <div className={styles.productCard} role="listitem">
+    <li className={styles.productCard}>
       <img src={product.images} alt={product.name} className={styles.image} loading="lazy" />
       <div className={styles.content}>
         <h3 className={styles.title}>{product.name}</h3>
@@ -23,7 +23,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
 
         <p className={styles.price}>${product.price}</p>
       </div>
-    </div>
+    </li>
   );
 };
 

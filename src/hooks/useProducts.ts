@@ -1,4 +1,5 @@
 import { useQuery } from 'react-query';
+
 import { Product } from '../types/Products';
 
 export function useProducts() {
@@ -7,7 +8,7 @@ export function useProducts() {
     async () => {
       const products = (await fetch(
         'https://my-json-server.typicode.com/YofretRios/jsondetails/products'
-      ).then((res) => res.json())) as Array<Product>;
+      ).then((res) => res.json())) as Product[];
 
       window.localStorage.setItem('products', JSON.stringify(products));
 

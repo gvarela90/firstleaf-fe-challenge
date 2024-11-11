@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Link } from 'gatsby';
+
 const pageStyles = {
   color: '#232129',
   padding: '96px',
@@ -16,13 +18,13 @@ const HomePage = (): JSX.Element => (
     <h1 style={headingStyles}>Choose a challenge:</h1>
     <ul>
       <li>
-        <a href="/countries">Countries</a>
+        <Link to="/countries">Countries</Link>
       </li>
       <li>
-        <a href="/bucket">Bucket</a>
+        <Link to="/bucket">Bucket</Link>
       </li>
       <li>
-        <a href="/promo">Promo</a>
+        <Link to="/promo">Promo</Link>
       </li>
     </ul>
   </main>

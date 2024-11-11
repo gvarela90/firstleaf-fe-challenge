@@ -1,6 +1,7 @@
 # React Coding Challenge
 
 ## Description
+
 This project contains the basis for our coding challenge.
 
 It doesn't define any UI limitations in any way and only gives you the basic components for SEO/Links/Infinite Scrolling while creating a comfortable development environment to get started.
@@ -25,6 +26,7 @@ Complete at least 2 of the 3 challenges presented in the repo, make sure to asse
 
     ```shell
     cd my-gatsby-site/
+    npm run install
     npm run develop
     ```
 
