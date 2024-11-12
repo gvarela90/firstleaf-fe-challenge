@@ -1,0 +1,46 @@
+%robotoBook {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+
+$bright-green: #333;
+
+.countdown {
+  @extend %robotoBook;
+
+  .label {
+    font-size: 14px;
+    color: #7f7f7f;
+    line-height: 1.29;
+    letter-spacing: 0.4px;
+  }
+
+  .counter {
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: $bright-green;
+  }
+}
+
+.blink {
+  animation: blinker 1s linear infinite;
+
+  .label,
+  .counter {
+    color: red;
+  }
+}
+
+.times-up {
+  .label,
+  .counter {
+    color: red;
+  }
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
